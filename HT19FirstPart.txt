@@ -1,0 +1,46 @@
+CREATE TABLE Player
+(
+    Id INT PRIMARY KEY,
+    FirstName NVARCHAR(20) NOT NULL,
+    LastName NVARCHAR(20) NOT NULL,
+	PositionName NVARCHAR(20) NOT NULL,
+	TeamId INT,
+	FOREIGN KEY(TeamId) REFERENCES Team(Id)
+)
+
+CREATE TABLE Team
+(
+    Id INT PRIMARY KEY,
+    TeamName NVARCHAR(20) NOT NULL,
+	LigueName NVARCHAR(20) NOT NULL,
+	CoachId INT,
+	FOREIGN KEY(CoachId) REFERENCES Coach(Id)  
+)
+
+CREATE TABLE Coach
+(
+    Id INT PRIMARY KEY,
+    FirstName NVARCHAR(20) NOT NULL,
+    LastName NVARCHAR(20) NOT NULL,	
+)
+
+INSERT Player VALUES (1, 'Lionel', 'Messi', 'FW', 1);
+INSERT Player VALUES (2, 'Andreas', 'Iniesta', 'CAM', 1);
+INSERT Player VALUES (3, 'Gerard', 'Pique', 'CD', 1);
+INSERT Player VALUES (4, 'Manuel', 'Nouer', 'GK', 2);
+INSERT Player VALUES (5, 'Thomas', 'Muller', 'CAM', 2);
+INSERT Player VALUES (6, 'Kevin', 'De Breune', 'CM', 3);
+INSERT Player VALUES (7, 'Kyle', 'Walker', 'RB', 3);
+INSERT Player VALUES (8, 'Mats', 'Hummels', 'CB', 4);
+INSERT Player VALUES (9, 'Marco', 'Reus', 'CAM', 4);
+INSERT Player VALUES (10, 'Mo', 'Salah', 'RW', 5);
+INSERT Player VALUES (11, 'Andrew', 'Robertson', 'LB', 5);
+
+INSERT Team VALUES (1, 'FC Barcelona', 'Spain', 1);
+INSERT Team VALUES (2, 'FC Bayern', 'Germany', 1);
+INSERT Team VALUES (3, 'FC Man City', 'England', 1);
+INSERT Team VALUES (4, 'FC Borussia D', 'Germany', 2);
+INSERT Team VALUES (5, 'FC Liverpool', 'England', 2);
+
+INSERT Coach VALUES (1, 'Pep', 'Guardiola');
+INSERT Coach VALUES (2, 'Jurgen', 'Klopp');
